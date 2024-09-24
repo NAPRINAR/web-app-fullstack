@@ -32,6 +32,6 @@ router.delete('/posts/:id', authenticateToken, PostController.deletePost);
 
 // Роуты комментариев
 router.post('/comments', authenticateToken, CommentController.createComment);
-router.delete('/comments', authenticateToken, CommentController.deleteComment);
+router.delete('/comments/:id', authenticateToken, CommentController.deleteComment);
 
 module.exports = router;
