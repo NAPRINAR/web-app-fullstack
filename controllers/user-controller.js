@@ -27,7 +27,7 @@ const UserController = {
       // Генерация названии аватарки
       const avatarName = `${name}_${Date.now()}.png`;
       // Генерация пути аватарки
-      const avatarPath = path.join(__dirname, '../uploads', avatarName);
+      const avatarPath = path.join(__dirname, '/../uploads', avatarName);
       // Создание Аватарки
       fs.writeFileSync(avatarPath, png);
       // Запись пользователя в БД
@@ -36,7 +36,7 @@ const UserController = {
           email,
           password: hashedPassword,
           name,
-          avatarUrl: `/uploads/${avatarPath}`,
+          avatarUrl: `/uploads/${avatarName}`,
         },
       });
       res.json(user);
