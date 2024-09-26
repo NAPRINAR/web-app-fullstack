@@ -30,11 +30,12 @@ const PostController = {
     const userId = req.user.userId;
     try {
       // Забираем все посты с нужными нам полями
+
       const posts = await prisma.post.findMany({
         include: {
           likes: true,
-          author: true,
           comments: true,
+          author: true,
         },
         orderBy: {
           createdAt: 'desc',
@@ -48,7 +49,7 @@ const PostController = {
 
       res.json(postWithLikeInfo);
     } catch (error) {
-      console.error('getAllPosts error ');
+      console.error('getAllPosts error ', error);
       res.status(500).json({ error: 'internal server error' });
     }
   },
