@@ -10,7 +10,7 @@ const authenticateToken = (req, res, next) => {
 
   // Проверка на наличии токена
   if (!token) {
-    return res.status(401).json({ message: 'Unauthorized / Не авторизован' });
+    return res.status(401).json({ error: 'Unauthorized / Не авторизован' });
   }
   // Верификация токена по SECRET_KEY
   jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
